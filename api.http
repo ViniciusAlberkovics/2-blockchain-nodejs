@@ -1,0 +1,22 @@
+### Get Balance
+GET http://localhost:3001/balance/0x08749409D53729827965e3E81BB010924B25c12f
+
+### Estimate Gas
+POST http://localhost:3001/transactions/estimate-gas
+Content-Type: application/json
+
+{
+  "from": "0x08749409D53729827965e3E81BB010924B25c12f",
+  "value": 10000,
+  "to": "0x540533DF46cE07d024eD5cfF788FFa884dB68B0b"
+}
+
+### Create transaction
+POST http://localhost:3001/transactions
+Content-Type: application/json
+
+{
+  "from": "0x08749409D53729827965e3E81BB010924B25c12f",
+  "value": 10000,
+  "to": "0x540533DF46cE07d024eD5cfF788FFa884dB68B0b"
+}
