@@ -20,3 +20,29 @@ Content-Type: application/json
   "value": 10000,
   "to": "0x540533DF46cE07d024eD5cfF788FFa884dB68B0b"
 }
+
+
+### Get Balance
+GET http://localhost:3001/eth/balance/0xFa4aEfec9D25752962B25D95603e785B8AcCd4EF
+
+### Estimate Gas
+POST http://localhost:3001/eth/transactions/estimate-gas
+Content-Type: application/json
+
+{
+  "from": "0xf5fd012112B7457f78E77980dD265e9c90FCa1De",
+  "value": 100000,
+  "to": "0x2A181D468c6891269A608770943C1DAb6AFc955f"
+}
+
+### Create transaction
+POST http://localhost:3001/eth/transactions
+Content-Type: application/json
+
+{
+  "from": "0xf5fd012112B7457f78E77980dD265e9c90FCa1De",
+  "value": 1000000000000000000,
+  "to": "0x2A181D468c6891269A608770943C1DAb6AFc955f"
+}
+
+
