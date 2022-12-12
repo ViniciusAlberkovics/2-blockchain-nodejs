@@ -5,6 +5,9 @@ import ExpressAdapter from "./infra/api/ExpressAdapter";
 import Router from "./infra/api/Router";
 import BlockchainContainer from "./infra/blockchain/blockchain-container";
 import ETH from "./infra/blockchain/eth";
+import Matic from "./infra/blockchain/matic";
+import { POSClient, use } from "@maticnetwork/maticjs";
+import Web3ClientPlugin from "@maticnetwork/maticjs-web3";
 
 dotenv.config();
 
@@ -17,6 +20,25 @@ const eth = new ETH(context);
 blockchainContainer.addInstance({
   name: "eth",
   instance: eth,
+});
+
+use(Web3ClientPlugin);
+const maticPos = new POSClient();
+maticPos.init({
+  network: "testnet",
+  version: "mumbai",
+  parent: {
+    defaultConfig: {},
+  } as any,
+  child: {
+    defaultConfig: {},
+  } as any,
+});
+
+const matic = new Matic(maticPos);
+blockchainContainer.addInstance({
+  name: "matic",
+  instance: matic,
 });
 
 const httpServer = new ExpressAdapter();

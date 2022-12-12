@@ -36,13 +36,17 @@ Content-Type: application/json
 }
 
 ### Create transaction
-POST http://localhost:3001/eth/transactions
+POST http://localhost:3001/matic/transactions
 Content-Type: application/json
 
 {
-  "from": "0xf5fd012112B7457f78E77980dD265e9c90FCa1De",
-  "value": 1000000000000000000,
-  "to": "0x2A181D468c6891269A608770943C1DAb6AFc955f"
+  "from": "0x2A181D468c6891269A608770943C1DAb6AFc955f",
+  "value": 5000000000000,
+  "to": "0xf5fd012112B7457f78E77980dD265e9c90FCa1De",
+  "maxPriorityFeePerGas": 40000000000,
+  "type": 2
 }
 
 
+### Get Balance
+GET http://localhost:3001/matic/balance/0x2A181D468c6891269A608770943C1DAb6AFc955f
